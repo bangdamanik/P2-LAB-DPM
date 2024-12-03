@@ -1,5 +1,4 @@
-import { Image, StyleSheet, Platform } from 'react-native';
-
+import { Image, StyleSheet, Platform, View, Text } from 'react-native';
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
@@ -50,6 +49,15 @@ export default function HomeScreen() {
           <ThemedText type="defaultSemiBold">app-example</ThemedText>.
         </ThemedText>
       </ThemedView>
+
+      {/* Komponen tambahan */}
+      <ThemedView style={styles.customContainer}>
+        <Text style={styles.centerText}>Joner Okto Sanjogi Damanik</Text>
+        <View style={styles.boxContainer}>
+          <View style={styles.box1} />
+          <View style={styles.box2} />
+        </View>
+      </ThemedView>
     </ParallaxScrollView>
   );
 }
@@ -70,5 +78,35 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     position: 'absolute',
+  },
+  // Tambahan: Gaya untuk komponen kustom
+  customContainer: {
+    flex: 1,
+    backgroundColor: '#D3D3D3', // Warna abu-abu terang
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 16,
+    borderRadius: 10,
+  },
+  centerText: {
+    fontSize: 24,
+    color: 'blue', // Warna teks biru
+    fontWeight: 'bold', // Gaya teks tebal
+    marginBottom: 20,
+  },
+  boxContainer: {
+    flexDirection: 'row', // Tata letak horizontal
+    justifyContent: 'space-between', // Jarak merata
+    width: '80%', // Lebar relatif container untuk kotak
+  },
+  box1: {
+    width: 100,
+    height: 100,
+    backgroundColor: 'red', // Warna kotak pertama
+  },
+  box2: {
+    width: 100,
+    height: 100,
+    backgroundColor: 'green', // Warna kotak kedua
   },
 });
